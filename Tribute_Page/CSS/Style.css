@@ -1,0 +1,284 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width:100%;
+    height:100vh;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar{
+    width:0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #1d1d1f;
+}
+
+a {
+  color: #007aff;
+  text-decoration: none;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1.5em 2.5em;
+}
+
+article ul {
+    display: flex;
+    justify-content: space-evenly;
+    gap:1.6em;
+    list-style: none;
+}
+
+article ul li{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+section{
+    width:100%;
+    height:90vh;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 4000px;
+}
+
+section .img-container{
+    width:23vw;
+    height:36vw;
+    /*overflow: hidden;*/
+    position: absolute;
+    top:45%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50% / 30%;
+}
+.img-container::before{
+    content: "Steave";
+    position: absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    z-index:100;
+    font-size: 10vw;
+    transform: translate(-60%,-10%);
+    font-family: 'Playfair Display', serif;
+    font-size: 8vw;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.img-container::after{
+    content: "Jobs";
+    position: absolute;
+    bottom:0%;
+    width:100%;
+    z-index:100;
+    font-size: 10vw;
+    transform: translate(-15%,-5%);
+    font-family: 'Playfair Display', serif;
+    font-size: 8vw;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 50% / 30%;
+    z-index:200;
+}
+
+.info{
+    position: absolute;
+    top:60%;
+    left:6%;
+}
+.info p{
+    width:60%;
+    font-size: 12px;
+    text-align: start;
+    line-height: 1.2;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: -0.023em;
+    color: #333333;
+}
+
+.ring{
+    width:29.8vw;
+   /* border:3.3px solid rgb(255, 140, 0);*/
+    border:3.3px solid rgb(250, 1, 1);
+    border-bottom: 0;
+    height:4vw;
+    position: absolute;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transform-style: preserve-3d;
+    top:50%;
+    left:35%;
+    transform: translate(-50%,-50%);
+    transform: rotateZ(-170deg);
+}
+
+.blob{
+    width:35vw;
+    height: 35vw;
+    background-color: rgb(255, 140, 0);
+    position: absolute;
+    top:15%;
+    left:50%;
+    z-index:-1;
+    border-radius: 50%;
+    filter:blur(120px);
+    transform: scale(1);
+    animation-name: aniBlob;
+    animation-duration: 5.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-out;
+    animation-direction: alternate-reverse;
+}
+
+
+@keyframes aniBlob {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.4);
+    }
+}
+
+
+@media (max-width:768px) {
+    h1,h2{
+        font-size:1.5em;
+    }
+
+    p{
+        font-size: 12px;
+    }
+
+    nav{
+        flex-direction: column;
+        gap:2vh;
+        padding:.3em .5em;
+    }
+
+    nav h1{
+        font-weight: 800;
+    }
+
+    nav ul li{
+        font-size: 18px;
+        font-weight: 300;
+        line-height: .9;
+        margin: 1vh;
+    }
+
+    .info{
+        top:75%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(.9);
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:1rem;
+    }
+
+    .info p{
+        width:100%;
+        font-size: 12px;
+        white-space: nowrap;
+        text-align: center;
+        font-weight: 500;
+    }
+
+
+    .img-container{
+        width:23vh !important;
+        height: 35vh !important;
+        top:38% !important;
+    }
+
+    .img-container::before{
+        font-size:8vh;
+    }
+
+    .img-container::after{
+        font-size: 8vh;
+    }
+
+    .ring{
+        width:28.9vh;
+        left:24%;
+        top:40%;
+        height:3.5vh;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 11px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 1.5vh;
+    padding: 0.3em 0.5em;
+  }
+
+  nav ul li {
+    font-size: 16px;
+  }
+
+  .info {
+    top: 78%;
+    transform: translate(-50%, -50%) scale(0.85);
+    padding: 0.8rem;
+  }
+
+  .info p {
+    font-size: 11px;
+  }
+
+  .img-container {
+    width: 22vh !important;
+    height: 32vh !important;
+    top: 36% !important;
+  }
+
+  .img-container::before,
+  .img-container::after {
+    font-size: 6.5vh;
+  }
+
+  .ring {
+    display: none;
+  }
+}
